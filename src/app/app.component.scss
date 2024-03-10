@@ -1,0 +1,10 @@
+.menu-bar {
+    .is-active {
+        background-color: gray;
+    }
+    display: flex;
+    button {
+        flex: 1;
+        margin: 0px 1px;
+    }
+}

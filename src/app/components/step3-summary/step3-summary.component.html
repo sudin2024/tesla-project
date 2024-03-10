@@ -1,0 +1,30 @@
+<h2>Step 3: Summary</h2>
+<h4 *ngIf="carFullDetais.selectedModel">Your Tesla {{carFullDetais.selectedModel.description}}</h4>
+<div *ngIf="carFullDetais.selectedConfig" class="summary">
+    <div class="price">
+        <h5>{{carFullDetais.selectedConfig.description}}</h5> 
+        <h5>{{carFullDetais.selectedConfig.price | currency}}</h5>
+    </div>
+    <p >Range: {{carFullDetais.selectedConfig.range}} miles - Max speed: {{carFullDetais.selectedConfig.speed}}</p>
+    <div class="price" *ngIf="colorDescription">
+        <h5>{{colorDescription.description}}</h5> 
+        <h5>{{colorDescription.price | currency}}</h5>
+    </div>
+    <div class="price" *ngIf="carFullDetais.selectedTowHitch">
+        <h5>Tow Hitch Package</h5> 
+        <h5>{{selectedTowHitchValue | currency}}</h5>
+    </div>
+    <div class="price" *ngIf="carFullDetais.selectedYoke">
+        <h5>yoke steering wheel</h5> 
+        <h5>{{selectedYokeValue | currency}}</h5>
+    </div>
+    <hr class="hr hr-blurry" />
+    <div class="price" *ngIf="totalPrice">
+        <h5>TOTAL COST</h5> 
+        <h5>{{totalPrice | currency}}</h5>
+    </div>
+    <hr class="hr hr-blurry" />
+    <div *ngIf="carFullDetais.selectedImage">
+        <img [src]="carFullDetais.selectedImage" [alt]="carFullDetais.selectedConfig.description">
+    </div>
+</div>

@@ -1,0 +1,13 @@
+.form-fields {
+    display: flex;
+    select {
+        min-width: 220px;
+    }
+    .form-group {
+        margin-right: 10px;
+    }
+}
+.car-image img{
+    width: 100%;
+    //height: 300px;
+}

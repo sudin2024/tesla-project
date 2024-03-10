@@ -1,0 +1,28 @@
+<h2>Step 1: Choose your Model and Color</h2>
+<div>
+    <form [formGroup]="modelColorForm">
+        <div class="form-fields">
+            <div class="form-group">
+                <label for="modelSelect">Model : </label>
+                <div class="form-control">
+                    <select id="modelSelect" formControlName="carModel" (change)="onChange('model')">
+                        <option value="">Select a Model</option>
+                        <option *ngFor="let model of modelLists" [value]="model.code">{{model.description}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group" *ngIf="selectedCarModelValue">
+                <label for="colorSelect">Color : </label>
+                <div class="form-control">
+                    <select id="colorSelect" formControlName="carColor" (change)="onChange('color')">
+                        <option value="">Select a Color</option>
+                        <option *ngFor="let color of selectedCarModel?.colors" [value]="color.code">{{color.description}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="car-image" *ngIf="selectedCarModel && selectedCarColorlValue">
+        <img [src]="generatedCarImage" [alt]="selectedCarModel.description">
+    </div>
+</div>

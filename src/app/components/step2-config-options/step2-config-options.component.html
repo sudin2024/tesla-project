@@ -1,0 +1,31 @@
+<h2>Step 2: Select your Config and Options</h2>
+<div>
+    <form [formGroup]="configOptionForm">
+        <div class="form-fields">
+            <div class="form-group">
+                <label for="configSelect">Config : </label>
+                <div class="form-control">
+                    <select id="configSelect" formControlName="configType">
+                        <option value="">Select a Config</option>
+                        <option *ngFor="let config of configData?.configs" [value]="config.id">{{config.description}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-control">
+                    <p *ngIf="selectedConfigItem">Range: {{selectedConfigItem.range}}  miles - Max speed: {{selectedConfigItem.speed}} -
+                        Cost: {{selectedConfigItem.price | currency}}</p>
+                </div>
+            </div>
+            <div class="form-group" *ngIf="configData?.towHitch">
+                <label for="includeTow" >Tow hitch? <input id="includeTow" type="checkbox" formControlName="towHitch" /> </label>
+            </div>
+            <div class="form-group" *ngIf="configData?.yoke">
+                <label for="includeYoke" >Yoke Steering wheel? <input id="includeYoke" type="checkbox" formControlName="yoke" /> </label>
+            </div>
+        </div>
+    </form>
+    <div class="car-image" *ngIf="selectedConfigItem">
+        <img [src]="generatedCarImage" [alt]="carModelColorData.selectedModelValue">
+    </div>
+</div>
